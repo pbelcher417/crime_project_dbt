@@ -1,6 +1,105 @@
 
 version: 2
 
+sources:
+    - name: police_data
+      database: crime-project-pbelcher
+      schema: police_data
+      description: Initial uploaded data from data police uk website.
+      tables:
+      - name: crime_outcomes_new
+        description: Crime outcome data for different constabularies
+        columns:
+          - name: crime_id
+            description: ID for a crime
+          - name: month
+            description: month crime was commited
+          - name: reported_by
+            description: agency that reported the crime
+          - name: falls_within
+            description: which agency the crime fell within
+          - name: longitude
+            description: Approximate longitude of the crime
+          - name: latitude
+            description: Approximate latitude of the crime
+          - name: location
+            description: Approximate location of the crime  
+          - name: lsoa_code
+            description: lower layer superset area identifier
+          - name: lsoa_name
+            description: lower layer superset area name
+          - name: outcome_type
+            description: Type of outcome
+          - name: area
+            description: Area as determined by file downloaded
+
+      - name: stop_and_search_new
+        description: stop and search data for different constabularies
+        columns:
+          - name: type
+            description: Type of stop and search 
+          - name: date
+            description: month crime was commited
+          - name: part_of_policing_operation
+            description: whether the stop and search was part of a policing operation
+          - name: policing_operation
+            description: If the the stop and search was part of a policing operation, then the name of the policing operation
+          - name: latitude
+            description: Approximate latitude of the crime
+          - name: longitude
+            description: Approximate longitude of the crime
+          - name: gender
+            description: gender of the suspect searched
+          - name: age_range
+            description: Age range of the suspect searched
+          - name: self_defined_ethnicity
+            description: Self defined ethnicity of the suspect
+          - name: officer_defined_ethnicity
+            description: Officer defined ethnicity of the suspect
+          - name: legislation
+            description: Legislation enabling stop and search
+          - name: object_of_search
+            description: Object that was searched for
+          - name: outcome
+            description: Outcome of the search (if item was found or not)
+          - name: outcome_linked_to_object
+            description: Whether the Outcome of the search matched the object searched for
+          - name: removal_more_than_outer
+            description: Whether more than the outer layer of clothing was removed
+          - name: area
+            description: Area as determined by file downloaded
+
+      - name: street_level_crime_new
+        description: View of street level crimes
+        columns:
+          - name: crime_id
+            description: ID for a crime
+          - name: month
+            description: month crime was commited
+          - name: reported_by
+            description: agency that reported the crime
+          - name: falls_within
+            description: which agency the crime fell within
+          - name: longitude
+            description: Approximate longitude of the crime
+          - name: latitude
+            description: Approximate latitude of the crime
+          - name: location
+            description: Approximate location of the crime  
+          - name: lsoa_code
+            description: lower layer superset area identifier
+          - name: lsoa_name
+            description: lower layer superset area name
+          - name: crime_type
+            description: Type of crime commited
+          - name: last_outcome_category
+            description: Latest outcome category of the crime
+          - name: context
+            description: Additional context
+          - name: area
+            description: Area as determined by file downloaded
+      
+
 models:
     - name: my_first_dbt_model
       description: "A starter dbt model"
