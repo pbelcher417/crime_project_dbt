@@ -25,6 +25,8 @@ renamed as (
 
     from source
 
+    qualify row_number() over(partition by crime_id order by crime_month) = 1
+
 )
 
 select * from renamed
